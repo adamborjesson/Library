@@ -11,13 +11,20 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
-
-    
-
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Create Temporary Directory
+        run: |
+          mkdir -p $RUNNER_TEMP/mytempdir
+
+      # Add your workflow steps here
+
+      # Cleanup temporary files or directories at the end of the workflow
+      - name: Clean Up Temporary Files
+        run: |
+          rm -rf $RUNNER_TEMP/mytempdir
+
 
       - name: Set up Java version
         uses: actions/setup-java@v1
