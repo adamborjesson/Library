@@ -15,7 +15,7 @@ import com.example.library.dto.BookDTO;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin(origins = "https://library-backend.azurewebsites.net")
+@CrossOrigin(origins = "*")
 public class BookController {
 
     private final BookService bookService;
