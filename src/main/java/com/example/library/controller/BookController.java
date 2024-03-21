@@ -6,6 +6,8 @@ import com.example.library.service.BookService;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ public class BookController {
 
     private final BookService bookService;
 
+    @Autowired
     public BookController(BookService bookService) {
 
         this.bookService = bookService;
@@ -28,7 +31,7 @@ public class BookController {
 
 
     @GetMapping("/get/all")
-    public ResponseEntity<List<BookDTO>> getAllEducations() {
+    public ResponseEntity<List<BookDTO>> getAllBooks() {
         return ResponseEntity.ok().body(bookService.getAllBooks()
                 .stream()
                 .map(Book::getFullDto)

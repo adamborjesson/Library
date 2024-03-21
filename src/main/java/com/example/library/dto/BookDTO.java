@@ -2,6 +2,7 @@ package com.example.library.dto;
 
 import java.util.List;
 
+import com.example.library.model.Category;
 import com.example.library.model.book.EBook;
 import lombok.Value;
 
@@ -9,7 +10,7 @@ import lombok.Value;
 public class BookDTO {
     Long id;
     String name;
-    Long categoryId;
+    String category;
     Long copies;
     EBook state;
 }

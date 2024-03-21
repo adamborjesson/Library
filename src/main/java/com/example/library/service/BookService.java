@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.library.dto.BookDTO;
 import com.example.library.dto.BookRegistrationDTO;
 import com.example.library.dto.RestockBookDTO;
+import com.example.library.model.Category;
 import com.example.library.model.book.EBook;
 import com.example.library.repository.BookRepository;
 import com.example.library.repository.CategoryRepository;
@@ -34,7 +35,11 @@ public class BookService {
         if(categoryRepository.findById(bookRegistrationDTO.getCategoryId()).isEmpty()) {
             throw new Exception();
         }
-        return bookRepository.save(new Book(bookRegistrationDTO)).getFullDto();
+        Category category = categoryRepository.findById(bookRegistrationDTO.getCategoryId()).get();
+        Book book = bookRepository.save(new Book(bookRegistrationDTO, category));
+        category.getBooks().add(book);
+        categoryRepository.save(category);
+        return book.getFullDto();
     }
 
     public BookDTO getBook(Long id) {
