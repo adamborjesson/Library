@@ -30,8 +30,8 @@ public class BookController {
 
 
     @GetMapping("/message")
-    public ResponseEntity<String> printMessage() {
-        return ResponseEntity.ok().body("Hej");
+    public String printMessage() {
+        return "Hej";
     }
 
 
