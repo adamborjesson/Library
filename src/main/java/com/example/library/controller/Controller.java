@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping
-    public ResponseEntity<String> printMessage() {
-        return ResponseEntity.ok().body("Hej");
+    public String printMessage() {
+        return "Hej";
     }
 }
