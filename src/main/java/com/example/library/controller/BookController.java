@@ -29,7 +29,7 @@ public class BookController {
     }
 
 
-    @GetMapping
+    @GetMapping("/message")
     public ResponseEntity<String> printMessage() {
         return ResponseEntity.ok().body("Hej");
     }
