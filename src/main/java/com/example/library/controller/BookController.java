@@ -29,6 +29,11 @@ public class BookController {
     }
 
 
+    @GetMapping
+    public ResponseEntity<String> printMessage() {
+        return ResponseEntity.ok().body("Hej");
+    }
+
 
     @GetMapping("/get/all")
     public ResponseEntity<List<BookDTO>> getAllBooks() {
