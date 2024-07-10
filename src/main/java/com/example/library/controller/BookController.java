@@ -29,12 +29,6 @@ public class BookController {
     }
 
 
-    @GetMapping("/message")
-    public String printMessage() {
-        return "Hej";
-    }
-
-
     @GetMapping("/get/all")
     public ResponseEntity<List<BookDTO>> getAllBooks() {
         return ResponseEntity.ok().body(bookService.getAllBooks()
