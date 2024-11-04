@@ -2,6 +2,7 @@ package com.example.library.service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.library.dto.BookDTO;
 import com.example.library.dto.BookRegistrationDTO;
@@ -43,6 +44,7 @@ public class BookService {
     }
 
     public BookDTO getBook(Long id) {
+
         return bookRepository.findById(id).get().getFullDto();
     }
 
@@ -75,5 +77,12 @@ public class BookService {
         }
 
         return bookRepository.save(book).getFullDto();
+    }
+
+    public BookDTO getBookByName(String name) {
+        System.out.println(1);
+        Optional<Book> book = bookRepository.findByName(name);
+        System.out.println(2);
+        return book.get().getFullDto();
     }
 }

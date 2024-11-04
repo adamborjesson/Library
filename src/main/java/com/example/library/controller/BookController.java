@@ -55,6 +55,15 @@ public class BookController {
         }
     }
 
+    @GetMapping("/get/book/by/name/{name}")
+    public ResponseEntity<BookDTO> getBookByName(@PathVariable String name) {
+        try {
+            return ResponseEntity.ok().body(bookService.getBookByName(name));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book could not be found");
+        }
+    }
+
     @GetMapping("sell/book/{id}")
     public ResponseEntity<BookDTO> sellBook(@PathVariable Long id) {
         try {
