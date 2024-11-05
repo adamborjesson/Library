@@ -81,4 +81,9 @@ public class BookService {
     public BookDTO getBookByName(String name) {
         return bookRepository.findByName(name).get().getFullDto();
     }
+
+    public String delete(Long id) {
+        bookRepository.delete(bookRepository.findById(id).get());
+        return "Deleted";
+    }
 }

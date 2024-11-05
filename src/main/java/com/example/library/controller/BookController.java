@@ -82,4 +82,13 @@ public class BookController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok().body(bookService.delete(id));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not be found");
+        }
+    }
+
 }
